@@ -1,0 +1,24 @@
+<!-- products.component.html -->
+<div class="signup-container">
+  <button type="submit" (click)="onClick()">Show all Products</button>
+  <table border="1" *ngIf="buttonClicked">
+    <thead>
+      <tr>
+        <th>productId</th>
+        <th>producttitle</th>
+        <th>productprice</th>
+        <th>productdescription</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of mydata; trackBy: trackByFn">
+        <td>{{ item.productId }}</td>
+        <td>{{ item.productTitle }}</td>
+        <td>{{ item.productPrice }}</td>
+        <td>{{ item.productDescription }}</td>
+        <td><button (click)="showDetails(item.productId)">Details</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,33 @@
+<div class="signup-container">
+    <form class="signup-form" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+        <h2>Login Page</h2>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required formControlName="email" placeholder="Enter the username">
+            <small>
+                @if(reactiveForm.get('email').invalid
+                && reactiveForm.get('email').touched){
+                *invalid email
+                }
+            </small>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" required formControlName="password" placeholder="Enter the password">
+            <small>
+                @if(reactiveForm.get('password').invalid
+                && reactiveForm.get('password').touched){
+                *password is required
+                }
+            </small>
+        </div>
+        <button type="submit">Log in</button>
+    </form>
+</div>
+<div class="result-container" *ngIf="isClicked">
+    @if(isTrue){
+    <h1 class="success">Login successful</h1>
+    }@else{
+    <h1 class="error">Invalid mail or password</h1>
+    }
+</div>
